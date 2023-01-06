@@ -41,7 +41,7 @@ export class GameboardComponent {
     this.gameBoard = Array(9).fill(null)
     this.winner = ""
     this.xIsNextPlayer = true;
-    this.draw = false;Array(9).fill(null)
+    this.draw = false;
   }
 
   ngOnInit() {
@@ -52,7 +52,7 @@ export class GameboardComponent {
     this.gameBoard = Array(9).fill(null)
     this.winner = ""
     this.xIsNextPlayer = true;
-    this.draw = false;Array(9).fill(null)
+    this.draw = false;
   }
 
   get currentPlayer() {
@@ -60,6 +60,7 @@ export class GameboardComponent {
   }
 
   pickTile(index: number) {
+
     // directly returns if the game is "over"
     if (this.draw || this.winner) {
       return;
@@ -80,7 +81,7 @@ export class GameboardComponent {
 
   checkForWinner() {
 
-    for (const iterator of this.gameBoard) {
+    for (const iterator of this.winPositioins) {
       const [firstTile, secondTile, thirdTile] = iterator;
       if ( // checks if all three Tiles are occupied by the same player
         this.gameBoard[firstTile] &&
@@ -93,7 +94,7 @@ export class GameboardComponent {
   }
 
   fullGameBoard(): boolean {
-    return !this.gameBoard.find((element) => !element)
+    return this.gameBoard.find((element) => !element) === undefined
   }
 
 }
