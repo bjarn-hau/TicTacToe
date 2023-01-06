@@ -1,1 +1,14 @@
-<p>gameboard works!</p>
+
+<h1>Current Player {{ currentPlayer }} </h1>
+<button (click)="setUpGame()">New Game</button>
+
+<h2 *ngIf="winner">The winner is Player: {{ winner}} </h2>
+<h2 *ngIf="draw">The Game ended in a Draw</h2>
+
+<main>
+    <app-playtile *ngFor="let val of gameBoard; let i = index"
+    [value]="val"
+    (click)="pickTile(i)">
+
+    </app-playtile>
+</main>
