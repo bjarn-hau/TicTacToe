@@ -1,14 +1,24 @@
+<h1>
+    <ng-container *ngIf="winner; else elseif">The winner is 
+        <br> <font [size]="+10"> {{winner}} </font> <br>
+        Congratulations!!!
+    </ng-container>
+    <ng-template #elseif>
+        <ng-container *ngIf="draw; else else1">
+            The game ended in a Draw <br>
+            Want to play again? <br>
+            &darr;
+        </ng-container>
+    </ng-template>
+    <ng-template #else1>
+        Current Player: <br>
+        {{ currentPlayer }} 
+    </ng-template>
+</h1>
 
-<h1>Current Player {{ currentPlayer }} </h1>
-<button (click)="setUpGame()">New Game</button>
-
-<h2 *ngIf="winner">The winner is Player: {{ winner}} </h2>
-<h2 *ngIf="draw">The Game ended in a Draw</h2>
+<button (click)="setUpGame()">Reset Game Board</button>
 
 <main>
-    <app-playtile *ngFor="let val of gameBoard; let i = index"
-    [value]="val"
-    (click)="pickTile(i)">
-
+    <app-playtile *ngFor="let val of gameBoard; let i = index" [value]="val" (click)="pickTile(i)">
     </app-playtile>
 </main>
