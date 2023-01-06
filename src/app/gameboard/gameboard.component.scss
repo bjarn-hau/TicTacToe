@@ -1,0 +1,10 @@
+
+main {
+    display: grid;
+    grid-template-columns: 200px 200px 200px;
+}
+
+app-playtile {
+    border: 1px black solid;
+    height: 200px;
+}
