@@ -63,6 +63,7 @@ export class GameboardComponent {
 
     // directly returns if the game is "over"
     if (this.draw || this.winner) {
+      window.alert(`The game has ended and ${this.draw ? "in a draw" : `Player: ${this.winner} won!`} `)
       return;
     }
 
